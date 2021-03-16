@@ -1,38 +1,69 @@
-fun main(){
+fun main() {
 
     println("Bem vindo ao Bytebank")
+    var i = 0
 
-    val titular: String
-    val numeroConta: Int = 1000
-    var saldo: Double = 0.0
+    while ( i < 5){
+        val titular: String = "$i"
+        val numeroConta: Int = 0 + i
+        var saldo: Double = 0.0
+        println("Titular $titular")//String Template
+        println("numero da conta $numeroConta")
+        println("saldo da conta $saldo")
+        println()
+        i++
+    }
+    }
 
-//    saldo = 100.toDouble()//conversão para double
-//
-//    saldo +=200
-    saldo = -1.0
 
-    titular = "Alex 'lelek' Felipe"
 
-    println("Titular $titular")//String Template
-    println("numero da conta $numeroConta")
-    println("saldo da conta $saldo")
 
-//    if (saldo > 0.0){
-//        println("Conta está positiva")
+//    for (i in 1 .. 10) {//for (i in 5 downTo 1 step 2) {para criar decrescente
 //
-//    }else if (saldo == 0.0){
+//        if (i==5){
+//            break
+//        }
 //
-//        println("Conta está zerada")
+//        val titular: String = "$i"
+//        val numeroConta: Int = 0 + i
+//        var saldo: Double = 0.0
 //
-//    }else{
+////        saldo = 100.toDouble()//conversão para double
+////        saldo += 200
+////        saldo = -1.0
 //
-//        println("Está negativada")
+//
+//
+//        println("Titular $titular")//String Template
+//        println("numero da conta $numeroConta")
+//        println("saldo da conta $saldo")
+//        println()
+//
+//}
+//
+//
+////        testaCondicoes(saldo)
+//
 //    }
-    when {
-        saldo > 0.0 -> println("Conta está positiva")
-        saldo == 0.0 -> println("Conta está zerada")
-          else -> println("Está negativada")
-            }
-    
 
-}
+    fun testaCondicoes(saldo: Double) {//aplicação do paramentro
+// utilizar variável pois if e when chamam
+
+        if (saldo > 0.0) {
+            println("Conta está positiva")
+
+        } else if (saldo == 0.0) {
+
+            println("Conta está zerada")
+
+        } else {
+
+            println("Está negativada")
+        }
+        when {
+            saldo > 0.0 -> println("Conta está positiva")
+            saldo == 0.0 -> println("Conta está zerada")
+            else -> println("Está negativada")
+        }
+
+    }
