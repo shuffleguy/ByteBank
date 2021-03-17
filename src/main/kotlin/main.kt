@@ -15,7 +15,7 @@ fun main() {
     println(contaAlex.numero)
     println(contaAlex.saldo)
 
-    deposita(contaAlex, 150.0)
+    contaAlex.deposita(150.0)//chamando como objeto
     println("Saldo atual: ${contaAlex.saldo}")
 
     val contaFran = Conta()
@@ -26,7 +26,7 @@ fun main() {
     println(contaFran.numero)
     println(contaFran.saldo)
 
-    deposita(contaFran, 15.0)
+    contaFran.deposita( 15.0)
 
     println("Saldo atual: ${contaFran.saldo}")
 }
@@ -37,9 +37,11 @@ class Conta(){
     var numero = 0
     var saldo = 0.0
 
-}
-fun deposita(conta: Conta, valor: Double){
-    conta.saldo += valor
+    fun deposita (valor: Double){// transformando em método
+        this.saldo += valor
+
+    }
+
 
 }
 
