@@ -18,6 +18,7 @@ fun main() {
     contaAlex.deposita(150.0)//chamando como objeto
     println("Saldo atual: ${contaAlex.saldo}")
 
+
     val contaFran = Conta()
     contaFran.titular = "Fran"
     contaFran.numero = 1001
@@ -32,9 +33,12 @@ fun main() {
 
     println("Saldo atual: ${contaFran.saldo}")
 
-
-
     contaFran.saque(405.0)
+
+    if (contaAlex.transfere(100.0,contaFran)){
+        println("Transferencia sucessida")
+        }else
+            println("saldo insuficiente")
 }
 
 class Conta(){
@@ -55,13 +59,22 @@ class Conta(){
                 println("Seu saldo está zerado")
             }
         }
-            else{
-                println("Saldo insuficiente")
-            }
+            return println("Saldo insuficiente")//else desnecessário
+    }
+
+    fun transfere(valor: Double, destino: Conta): Boolean{
+        if (this.saldo >= valor){
+            this.saldo -= valor
+            println("saldo atual: ${this.saldo}")
+            println("transferindo: $valor")
+            destino.saldo += valor
+            return true
+        }
+        return false
+
 
 
     }
-
 }
 
 fun geraConta(numero:Int) {
