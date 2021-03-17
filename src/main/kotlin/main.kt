@@ -28,7 +28,13 @@ fun main() {
 
     contaFran.deposita( 15.0)
 
+
+
     println("Saldo atual: ${contaFran.saldo}")
+
+
+
+    contaFran.saque(405.0)
 }
 
 class Conta(){
@@ -39,9 +45,22 @@ class Conta(){
 
     fun deposita (valor: Double){// transformando em método
         this.saldo += valor
+    }
+    fun saque (valor: Double){
+        if (this.saldo>=valor){
+            println("Operação de saque selecionada...")
+            this.saldo-=valor
+            println("Saldo atual $saldo")
+            if (saldo == 0.0){
+                println("Seu saldo está zerado")
+            }
+        }
+            else{
+                println("Saldo insuficiente")
+            }
+
 
     }
-
 
 }
 
