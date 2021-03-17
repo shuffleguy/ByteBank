@@ -2,17 +2,39 @@ fun main() {
 
     println("Bem vindo ao Bytebank")
 
-    geraConta(2)
+
+//    var lista = arrayOf(geraConta(2))
+//    println(lista)
+
+    val contaJoao = Conta()
+    contaJoao.titular = "João"
+    var contaMaria = contaJoao //copia a referencia do local e não os métodos
+    contaMaria.titular = "Maria"
+
+    println("Conta João = ${contaJoao.titular}")
+    println("Conta João = ${contaMaria.titular}")
+
+    println(contaJoao == contaMaria)
+
+
+
 
 
     val contaAlex = Conta()
     contaAlex.titular = "lelek"
     contaAlex.numero = 1000
+    contaAlex.saldo = 500.0
     println(contaAlex.titular)
+    println(contaAlex.numero)
+    println(contaAlex.saldo)
 
     val contaFran = Conta()
     contaFran.titular = "Fran"
+    contaFran.numero = 1001
+    contaFran.saldo = 230.0
     println(contaFran.titular)
+    println(contaFran.numero)
+    println(contaFran.saldo)
 }
 
 class Conta(){
