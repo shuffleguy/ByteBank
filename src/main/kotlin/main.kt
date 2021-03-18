@@ -8,10 +8,10 @@ fun main() {
     val contaAlex = Conta()
     contaAlex.titular = "lelek"
     contaAlex.numero = 1000
-    contaAlex.setSaldo(500.0)
+    contaAlex.deposita(500.0)
     println(contaAlex.titular)
     println(contaAlex.numero)
-    println(contaAlex.getSaldo())
+    println(contaAlex.saldo)
 
 //    contaAlex.deposita(150.0)//chamando como objeto
 //    println("Saldo atual: ${contaAlex.saldo}")
@@ -20,10 +20,10 @@ fun main() {
     val contaFran = Conta()
     contaFran.titular = "Fran"
     contaFran.numero = 1001
-    contaFran.setSaldo(230.0)
+    contaFran.deposita(230.0)
     println(contaFran.titular)
     println(contaFran.numero)
-    println(contaFran.getSaldo())
+    println(contaFran.saldo)
 
 //    contaFran.deposita( 15.0)
 //    println("Saldo atual: ${contaFran.saldo}")
@@ -40,10 +40,17 @@ class Conta() {
 
     var titular = ""
     var numero = 0
-    private var saldo = 0.0
+    var saldo = 0.0
+        private set // não se pode setar saldo
 
-    fun deposita(valor: Double) {// transformando em método
-        this.saldo += valor
+
+
+    fun deposita(valor: Double) {
+        if(valor > 0){
+            this.saldo += valor
+        }
+        // transformando em método
+
     }
 
     fun saque(valor: Double) {
@@ -69,20 +76,8 @@ class Conta() {
         return false
     }
 
-    fun getSaldo(): Double {
-        return saldo
     }
-    fun setSaldo(valor: Double){
-       if(valor >= 0.0){
-           this.saldo = valor
-       } else{
-           println("Não se pode setar negativo")
-           
-       }
 
-
-    }
-}
 
 fun geraConta(numero: Int) {
     for (i in 1..numero) {
