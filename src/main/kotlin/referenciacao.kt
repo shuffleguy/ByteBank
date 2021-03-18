@@ -1,5 +1,5 @@
 fun main(){
-    val contaJoao = Conta()
+val contaJoao = Conta("João", 1003)
     contaJoao.titular = "João"
     var contaMaria = contaJoao //copia a referencia do local e não os métodos
     contaMaria.titular = "Maria"

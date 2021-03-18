@@ -5,9 +5,8 @@ fun main() {
 //    println(lista)
 
 
-    val contaAlex = Conta()
-    contaAlex.titular = "lelek"
-    contaAlex.numero = 1000
+    val contaAlex = Conta(titular = "Alex", numero = 1000)// pode ser feito por labels
+
     contaAlex.deposita(500.0)
     println(contaAlex.titular)
     println(contaAlex.numero)
@@ -17,9 +16,7 @@ fun main() {
 //    println("Saldo atual: ${contaAlex.saldo}")
 
 
-    val contaFran = Conta()
-    contaFran.titular = "Fran"
-    contaFran.numero = 1001
+    val contaFran = Conta("Fran", 1001)
     contaFran.deposita(230.0)
     println(contaFran.titular)
     println(contaFran.numero)
@@ -36,17 +33,17 @@ fun main() {
 //            println("saldo insuficiente")
 }
 
-class Conta() {
+class Conta(
+    var titular: String,
+    val numero: Int
+) {
 
-    var titular = ""
-    var numero = 0
     var saldo = 0.0
         private set // não se pode setar saldo
 
 
-
     fun deposita(valor: Double) {
-        if(valor > 0){
+        if (valor > 0) {
             this.saldo += valor
         }
         // transformando em método
@@ -76,7 +73,7 @@ class Conta() {
         return false
     }
 
-    }
+}
 
 
 fun geraConta(numero: Int) {
