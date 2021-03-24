@@ -1,21 +1,44 @@
-fun testaCondicoes(saldo: Double) {//aplicação do paramentro
-// utilizar variável pois if e when chamam
+fun testaCondicoes(saldo: Double) {
 
     if (saldo > 0.0) {
-        println("Conta está positiva")
 
+        println("saldo positivo: $saldo")
     } else if (saldo == 0.0) {
-
-        println("Conta está zerada")
-
+        println("Saldo zerado")
     } else {
+        println("saldo negativo")
+    }
 
-        println("Está negativada")
+
+    when {
+        saldo > 0.0 -> {
+
+            println("saldo positivo: $saldo")
+        }
+        saldo == 0.0 -> {
+            println("Saldo zerado")
+        }
+        else -> {
+            println("saldo negativo")
+        }
     }
     when {
-        saldo > 0.0 -> println("Conta está positiva")
-        saldo == 0.0 -> println("Conta está zerada")
-        else -> println("Está negativada")
+        saldo > 0.0 -> println("saldo positivo: $saldo")
+        saldo == 0.0 -> println("Saldo zerado")
+        else -> println("saldo negativo")
     }
 
+
+
+    fun testaGetESet(saldo: Double) {
+        fun getSaldo(): Double {
+            return saldo //retorno somente de uma informação
+        }
+
+        fun setSaldo(valor: Double) {
+            if (valor > 0) {
+                val saldo = valor
+            }
+        }
+    }
 }

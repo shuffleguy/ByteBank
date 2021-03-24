@@ -1,3 +1,0 @@
-# Projeto Bytebank em Kotlin
-
-

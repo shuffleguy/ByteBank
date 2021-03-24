@@ -1,29 +1,24 @@
-
 class Diretor(
     nome: String,
     cpf: String,
     salario: Double,
-    val senha: Int,
-    val plr:Int,
-    ):Funcionario(
-    nome,
-    cpf,
-    salario
-)
-{
+    senha: Int,
+    val plr: Double
+) : FuncionarioAdmin(
+    nome = nome,
+    cpf = cpf,
+    salario = salario,
+    senha = senha)//herança com labels
 
-
-//    fun bonificacao(): Double {
-//    return salario * 0.2
-//
-//    }
-
-    fun autenticacao (senha: Int): Boolean {
-        if(this.senha == senha){
+, Autenticavel{
+    override fun bonificacao(): Double {//sobreescrever function
+        return salario + plr
+    }
+    override fun autentica(senha: Int): Boolean {
+        if (this.senha == senha) {
             return true
         }
         return false
     }
 
-
-    }
+}

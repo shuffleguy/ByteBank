@@ -1,46 +1,26 @@
-class Conta(
-    var titular: String,
-    val numero: Int
-) {
-    var saldo = 0.0
-        private set // não se pode setar saldo
+abstract class Conta(
+        var titular: String,
+        val numero: Int
+    ) {
+        var saldo = 0.0
+            protected set//somente a classe e suas filhas conseguem setar
 
-    fun deposita(valor: Double) {
-        if (valor > 0) {
-            this.saldo += valor
-        }
-        // transformando em método
-
-    }
-
-    fun saque(valor: Double) {
-        if (this.saldo >= valor) {
-            println("Operação de saque selecionada...")
-            this.saldo -= valor
-            println("Saldo atual $saldo")
-            if (saldo == 0.0) {
-                println("Seu saldo está zerado")
+       fun deposita(valor: Double) {
+            if (valor > 0) {
+                this.saldo += valor
             }
         }
-        return println("Saldo insuficiente")//else desnecessário
-    }
 
-    fun transfere(valor: Double, destino: Conta): Boolean {
-        if (this.saldo >= valor) {
-            this.saldo -= valor
-            println("saldo atual: ${this.saldo}")
-            println("transferindo: $valor")
-            destino.saldo += valor
-            return true
+       abstract fun saca(valor: Double)
+        //função geral, precisa ser implementada
+
+       open fun transfere(valor: Double, destino: Conta): Boolean {
+
+            if (this.saldo > 0 && saldo >= valor) {
+                saldo -= valor
+                destino.deposita(valor)//utilizando função para depósito
+                return true
+            }
+            return false
         }
-        return false
     }
-    fun geraConta(numero: Int) {
-        for (i in 1..numero) {
-            println(1235 + i)
-
-        }
-        println()
-    }
-
-}

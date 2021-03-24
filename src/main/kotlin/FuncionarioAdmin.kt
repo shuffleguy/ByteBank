@@ -1,24 +1,19 @@
-class Gerente(
+abstract class FuncionarioAdmin(// abrir classe
     nome: String,
     cpf: String,
     salario: Double,
-    senha: Int
-) : FuncionarioAdmin(
+    val senha: Int
+) : Funcionario(
     nome = nome,
     cpf = cpf,
-    salario = salario,
-    senha = senha
-), Autenticavel//herança com labels
+    salario = salario
+), Autenticavel{//pega herança de funcionário
 
-{
-    override fun bonificacao(): Double {//sobrescrever função
-        return salario * 0.2
-    }
+    //não precisa criar a bonificação por que já é abstrata
     override fun autentica(senha: Int): Boolean {
         if (this.senha == senha) {
             return true
         }
         return false
     }
-
 }

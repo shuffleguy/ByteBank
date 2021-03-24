@@ -1,19 +1,11 @@
-open class Funcionario(
+abstract class Funcionario(// abrir classe
     val nome: String,
     val cpf: String,
     val salario: Double,
-
 ) {
-    fun bonificacao(): Double {
-        return salario * 0.1
-    }
+    abstract fun bonificacao(): Double // abrir função
 
-    fun salarioBonifica(
-        salario: Double,
-        valor: Double,
-    ){
-        var total = this.salario + this.bonificacao()
-        println(total)
+    //open fun bonificacao: Double get() = salario * 0.1 função pode ser escrita assim
 
-    }
+    //open val bonificacao: Double get() = salario * 0.1 pode ser uma propriert
 }
